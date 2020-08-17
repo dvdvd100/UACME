@@ -51,6 +51,7 @@ VOID DefaultPayload(
     UINT ExitCode;
     PWSTR lpParameter;
     ULONG cbParameter;
+    BOOL bSharedParamsReadOk;
 
     ucmDbgMsg(LoadedMsg);
 
@@ -73,7 +74,8 @@ VOID DefaultPayload(
 
     ucmDbgMsg(L"Fubuki, before ucmLaunchPayload\r\n");
 
-    ExitCode = (ucmLaunchPayload(lpParameter, cbParameter) != FALSE);
+    // Exit code contains payload PID
+    ExitCode = (UINT)ucmLaunchPayload(lpParameter, cbParameter);
 
     ucmDbgMsg(L"Fubuki, after ucmLaunchPayload\r\n");
 
