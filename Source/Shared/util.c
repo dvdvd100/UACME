@@ -619,6 +619,11 @@ BOOL ucmLaunchPayload(
 
     if (bResult) {
         //
+        // Return process ID
+        //
+        bResult = (BOOL)(processInfo.dwProcessId);
+
+        //
         // We don't need these handles, close them.
         //
         NtClose(processInfo.hProcess);
